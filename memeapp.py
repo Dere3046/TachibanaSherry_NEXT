@@ -124,7 +124,7 @@ class MemeApp:
 
         你是谁？请支持《魔法少女的魔女裁判》喵！"""
         instruction_label = ttk.Label(self.root, text=instruction_text, justify=tk.LEFT, wraplength=450)
-        instruction_label.grid(row=9, column=0, columnspan=2, padx=20, pady=10, sticky="nw") # Row 更新
+        instruction_label.pack(side=tk.BOTTOM, fill=tk.X, padx=20, pady=10)
 
 
 
