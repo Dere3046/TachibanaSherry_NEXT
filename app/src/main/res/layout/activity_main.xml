@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="橘雪莉表情包生成器"
+            android:textColor="#333333"
+            android:textSize="24sp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold" />
+
+        <!-- 图片预览区 -->
+        <ImageView
+            android:id="@+id/iv_preview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"
+            android:background="#DDDDDD"
+            android:scaleType="fitCenter"
+            android:contentDescription="Preview" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="准备就绪"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <!-- 文本输入 -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入要生成的文字">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_input_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:lines="3"
+                android:maxLines="5"
+                android:padding="12dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <!-- 下拉选框容器 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:baselineAligned="false">
+
+            <!-- 背景选择 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="选择背景:"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/spinner_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingStart="8dp"
+                    android:background="@drawable/spinner_border"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+
+            <!-- 字体选择 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="选择字体:"
+                    android:textStyle="bold"/>
+
+                <Spinner
+                    android:id="@+id/spinner_font"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingStart="8dp"
+                    android:background="@drawable/spinner_border"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 颜色选择与字号设置 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文字颜色: " />
+
+            <Button
+                android:id="@+id/btn_color_picker"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:text="选择颜色"
+                android:textColor="#000000" />
+            
+            <View
+                android:id="@+id/view_color_preview"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/color_circle_bg" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="最大字号:" />
+
+            <EditText
+                android:id="@+id/et_max_font_size"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="120"
+                android:gravity="center"
+                android:layout_marginStart="8dp"
+                android:imeOptions="actionDone"/>
+        </LinearLayout>
+
+        <!-- 描边和加粗设置 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加粗" />
+
+            <CheckBox
+                android:id="@+id/cb_outline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:layout_marginStart="16dp"
+                android:text="描边" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="描边宽度:" />
+
+            <EditText
+                android:id="@+id/et_outline_width"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="2"
+                android:gravity="center"
+                android:layout_marginStart="8dp"
+                android:imeOptions="actionDone"/>
+        </LinearLayout>
+
+
+        <!-- 生成按钮 -->
+        <Button
+            android:id="@+id/btn_generate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:text="生成并保存图片"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="シェリーちゃん可愛い大好き！\n支持《魔法少女的魔女裁判》"
+            android:gravity="center"
+            android:textColor="#999999"/>
+
+    </LinearLayout>
+</ScrollView>
