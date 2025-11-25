@@ -1,2 +1,3 @@
-# Tachibana-Sherry-Generator
-A simple tool to generate Meme pics of Tachibana Sherry
+# Tachibana-Sherry-Generator_Android
+
+Android version of the Tachibana Sherry meme generator.
