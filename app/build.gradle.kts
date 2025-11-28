@@ -32,5 +32,5 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.github.duanhong169:colorpicker:1.1.6") // 添加颜色选择器
+    implementation("com.github.duanhong169:colorpicker:1.1.6")
 }
