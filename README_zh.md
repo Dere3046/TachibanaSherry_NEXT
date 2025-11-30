@@ -1,9 +1,9 @@
 # TachibanaSherry_NEXT
 
-![GitHub](https://img.shields.io/github/license/your-username/TachibanaSherry_NEXT?color=blue)
-![GitHub branch](https://img.shields.io/github/forks/your-username/TachibanaSherry_NEXT?style=social)
-![GitHub stars](https://img.shields.io/github/stars/your-username/TachibanaSherry_NEXT?style=social)
-![GitHub issues](https://img.shields.io/github/issues/your-username/TachibanaSherry_NEXT)
+![GitHub](https://img.shields.io/github/license/Dere3046/TachibanaSherry_NEXT?color=blue)
+![GitHub branch](https://img.shields.io/github/forks/Dere3046/TachibanaSherry_NEXT?style=social)
+![GitHub stars](https://img.shields.io/github/stars/Dere3046/TachibanaSherry_NEXT?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Dere3046/TachibanaSherry_NEXT)
 
 [English](README.md) | [中文文档](README_zh.md)
 
