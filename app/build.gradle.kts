@@ -1,0 +1,36 @@
+plugins {
+    id("com.android.application")
+}
+
+android {
+    namespace = "com.dere3046.tachibanasherry"
+    compileSdk = 33
+
+    defaultConfig {
+        applicationId = "com.dere3046.tachibanasherry"
+        minSdk = 24
+        targetSdk = 33
+        versionCode = 3
+        versionName = "1.2"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.github.duanhong169:colorpicker:1.1.6") // 添加颜色选择器
+}

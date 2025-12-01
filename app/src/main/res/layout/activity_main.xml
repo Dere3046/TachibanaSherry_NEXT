@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="橘雪莉表情包生成器"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:layout_marginBottom="16dp"
+            android:textStyle="bold" />
+
+        <!-- 图片预览区 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface_color">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:background="@color/border_color"
+                    android:contentDescription="预览区域"
+                    android:maxHeight="300dp" />
+                    
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="预览区域 - 点击生成预览后显示图片"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 状态显示 -->
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="准备就绪，请输入文字并设置参数"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- 文本输入区域 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/surface_color">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <EditText
+                    android:id="@+id/et_input_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|start"
+                    android:hint="在这里输入要生成的文字内容，支持换行"
+                    android:lines="3"
+                    android:maxLines="5"
+                    android:minHeight="100dp"
+                    android:padding="12dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+        
+        <!-- 背景和字体选择区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:baselineAligned="false">
+
+            <!-- 背景选择 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="选择背景"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/surface_color">
+
+                    <Spinner
+                        android:id="@+id/spinner_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:paddingStart="8dp"
+                        android:background="@android:color/transparent"
+                        android:popupBackground="@color/surface_color"
+                        tools:ignore="RtlSymmetry" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- 字体选择 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="选择字体"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="@color/surface_color">
+
+                    <Spinner
+                        android:id="@+id/spinner_font"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:paddingStart="8dp"
+                        android:background="@android:color/transparent"
+                        android:popupBackground="@color/surface_color"
+                        tools:ignore="RtlSymmetry" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 颜色和样式设置区域 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/surface_color">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <!-- 颜色选择行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="文字颜色"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_color_picker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@color/colorPrimary"
+                        android:text="选择颜色"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp" />
+                    
+                    <!-- 颜色预览 -->
+                    <View
+                        android:id="@+id/view_color_preview"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/color_circle_bg" />
+                </LinearLayout>
+
+                <!-- 字号和描边设置行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="最大字号"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="1dp"
+                        app:cardBackgroundColor="@color/surface_color">
+
+                        <EditText
+                            android:id="@+id/et_max_font_size"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="120"
+                            android:textSize="12sp"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/text_primary"
+                            android:imeOptions="actionDone" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="描边宽度"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="1dp"
+                        app:cardBackgroundColor="@color/surface_color">
+
+                        <EditText
+                            android:id="@+id/et_outline_width"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:text="2"
+                            android:textSize="12sp"
+                            android:background="@android:color/transparent"
+                            android:textColor="@color/text_primary"
+                            android:imeOptions="actionDone" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- 样式复选框行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/cb_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="加粗"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_primary" />
+
+                    <CheckBox
+                        android:id="@+id/cb_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:checked="true"
+                        android:text="描边"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_primary" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 操作按钮区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <!-- 生成预览按钮 -->
+            <Button
+                android:id="@+id/btn_generate_preview"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorPrimary"
+                android:text="生成预览"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- 保存图片按钮 -->
+            <Button
+                android:id="@+id/btn_save_image"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorAccent"
+                android:text="保存图片"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:enabled="false" />
+        </LinearLayout>
+
+        <!-- 底部信息 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="シェリーちゃん可愛い大好き！\n支持《魔法少女的魔女裁判》"
+            android:gravity="center"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"/>
+
+    </LinearLayout>
+</ScrollView>
