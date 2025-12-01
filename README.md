@@ -19,6 +19,7 @@ This project includes the following main branches:
 |--------|-------------|
 | **Android_1.0** | 📱 Ported the original project to Android platform, built using Android IDE |
 | **Android_1.1** | 🎨 Added more comfortable UI and color palette features to the Android port, built using Android IDE |
+| **Android_1.2** | 🖼️ Added image preview functionality based on Android_1.1, built using Android IDE |
 | **main** | ⌨️ Based on version 1.2 of the original project, implements enter hotkey and ctrl+enter hotkey through keyboard hijacking, uses `python setup.py build_ext --inplace` to compile C extensions |
 | **guide** | 📚 Guide branch, provides functional descriptions of each branch for the main branch |
 
