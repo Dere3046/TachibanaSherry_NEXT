@@ -1,0 +1,6 @@
+Pillow>=9.5.0
+pyperclip>=1.8.2
+psutil>=5.9.0
+pywin32>=306
+keyboard>=0.13.5
+setuptools>=65.5.0
