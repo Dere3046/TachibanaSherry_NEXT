@@ -16,12 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-       
-        <!-- 显式禁用 Android IDE 的日志发送服务 -->
-        <service
-            android:name="com.itsaky.androidide.logsender.LogSenderService"
-            android:enabled="false"
-            android:exported="false" />
         
         <!-- 主活动 -->
         <activity
